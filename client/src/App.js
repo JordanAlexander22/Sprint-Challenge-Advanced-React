@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Players from './components/Players';
 import "./App.css";
+import DarkMode from './components/DarkMode';
 
 class App extends React.Component {
   state = {}
@@ -20,6 +21,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Women's Soccer Challenge</h1>
+        <DarkMode />
         <Players players={this.state.players}/>
       </div>
     )
