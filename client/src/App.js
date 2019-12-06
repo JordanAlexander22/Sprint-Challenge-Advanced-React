@@ -4,6 +4,11 @@ import Players from './components/Players';
 import "./App.css";
 import DarkMode from './components/DarkMode';
 
+//Test
+exports.sum = function(a,b){
+  return a + b;
+}
+
 class App extends React.Component {
   state = {}
 
