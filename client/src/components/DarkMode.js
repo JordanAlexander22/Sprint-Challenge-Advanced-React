@@ -9,7 +9,7 @@ const DarkMode = () => {
     };
     return (
         <div className="darkModeToggle">
-            <button
+            <div
             onClick={toggleMode}
             className={darkMode ? 'toggle toggled' : 'toggle'}
             />
