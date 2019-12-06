@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+import Players from './components/Players';
+import "./App.css";
+import DarkMode from './components/DarkMode';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//Test
+exports.sum = function(a,b){
+  return a + b;
 }
 
+class App extends React.Component {
+  state = {}
+
+  componentDidMount() {
+    axios.get('http://localhost:5000/api/players')
+      .then(res => {
+        this.setState({ 'players': res.data })
+      })
+      .catch(err => {
+        return err.response
+      })
+  }
+
+  render () {
+    return (
+      <div className="App">
+        <h1>Women's Soccer Challenge</h1>
+        <DarkMode />
+        <Players players={this.state.players}/>
+      </div>
+    )
+  }
+}
 export default App;
